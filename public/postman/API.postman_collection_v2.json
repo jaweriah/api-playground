@@ -1,0 +1,387 @@
+{
+    "info": {
+        "_postman_id": "25fce958-6d5e-77f9-b95b-38aba0e91a6f",
+        "name": "API Playground",
+        "description": "These requests showcase some of the things you can do with the API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Highest Priced Products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/products?$sort[price]=-1",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "products"
+                    ],
+                    "query": [
+                        {
+                            "key": "$sort[price]",
+                            "value": "-1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Product Name and Description Only",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/products?$select[]=name&$select[]=description",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "products"
+                    ],
+                    "query": [
+                        {
+                            "key": "$select[]",
+                            "value": "name"
+                        },
+                        {
+                            "key": "$select[]",
+                            "value": "description"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "TVs with free shipping and price between $500 and $800",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/products?category.name=TVs&price[$gt]=500&price[$lt]=800&shipping[$eq]=0",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "products"
+                    ],
+                    "query": [
+                        {
+                            "key": "category.name",
+                            "value": "TVs"
+                        },
+                        {
+                            "key": "price[$gt]",
+                            "value": "500"
+                        },
+                        {
+                            "key": "price[$lt]",
+                            "value": "800"
+                        },
+                        {
+                            "key": "shipping[$eq]",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Category Names Only",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/categories?$select[]=name",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "categories"
+                    ],
+                    "query": [
+                        {
+                            "key": "$select[]",
+                            "value": "name"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Categories with TV in the name",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/categories?name[$like]=*TV*",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "categories"
+                    ],
+                    "query": [
+                        {
+                            "key": "name[$like]",
+                            "value": "*TV*"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Find stores in Minnesota",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "",
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/stores?state=MN",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "stores"
+                    ],
+                    "query": [
+                        {
+                            "key": "state",
+                            "value": "MN"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Find stores that sell Apple products",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "",
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "localhost:3030/stores?service.name=Apple Shop",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "stores"
+                    ],
+                    "query": [
+                        {
+                            "key": "service.name",
+                            "value": "Apple Shop"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Find Stores Within 10 Miles of Beverly Hills",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": []
+                },
+                "url": {
+                    "raw": "http://localhost:3030/stores?near=90210&service.name=Windows%20Store",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3030",
+                    "path": [
+                        "stores"
+                    ],
+                    "query": [
+                        {
+                            "key": "near",
+                            "value": "90210"
+                        },
+                        {
+                            "key": "service.name",
+                            "value": "Windows%20Store"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Product",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"name\": \"New Product\",\n\t\"type\": \"Hard Good\",\n\t\"upc\": \"12345676\",\n\t\"price\": 99.99,\n\t\"description\": \"This is a placeholder request for creating a new product.\",\n\t\"model\": \"NP12345\"\n}"
+                },
+                "url": "http://localhost:3030/products"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Store",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "",
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{      \n\t  \"name\": \"New Store\",\n      \"type\": \"BigBox\",\n      \"address\": \"123 Fake St\",\n      \"address2\": \"\",\n      \"city\": \"Springfield\",\n      \"state\": \"MN\",\n      \"zip\": \"55123\",\n      \"lat\": 44.969658,\n      \"lng\": -93.449539,\n      \"hours\": \"Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 10-8\"\n}"
+                },
+                "url": "http://localhost:3030/stores"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Service",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "",
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{      \n\t  \"name\": \"New Service\"\n}"
+                },
+                "url": "http://localhost:3030/services"
+            },
+            "response": []
+        },
+        {
+            "name": "Create Category",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "",
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{      \n\t\"id\": \"pcmcat12345\",\n\t\"name\": \"New Category\"\n}"
+                },
+                "url": "http://localhost:3030/categories"
+            },
+            "response": []
+        }
+    ]
+}
